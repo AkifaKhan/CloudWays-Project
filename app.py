@@ -1,10 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template
 import mysql.connector
 
 app = Flask(__name__)
 
-# Database connection configuration
-db_config = {
+config = {
     'host': 'cloudways-server.mysql.database.azure.com',
     'user': 'lxpfgntzwv',
     'password': 'Blueberry@2001',  # Replace with your actual password
@@ -12,32 +11,32 @@ db_config = {
     'ssl_disabled': False  # SSL is required
 }
 
-# Function to store feedback in the database
-def store_feedback(name, email, phone, address, city, country):
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-    cursor.execute(
-        "INSERT INTO Feedback_Form (Name, Email, PhoneNumber, HouseAddress, City, Country) VALUES (%s, %s, %s, %s, %s, %s)",
-        (name, email, phone, address, city, country)
-    )
-    conn.commit()
-    cursor.close()
-    conn.close()
-
 @app.route('/')
 def index():
-    return render_template('feedback_form.html')
+    try:
+        # try to establish a connection
+        cnx = mysql.connector.connect(**config)
 
-@app.route('/submit', methods=['POST'])
-def submit():
-    name = request.form['name']
-    email = request.form['email']
-    phone = request.form['phone']
-    address = request.form['address']
-    city = request.form['city']
-    country = request.form['country']
-    store_feedback(name, email, phone, address, city, country)
-    return redirect('/')
+        # Check if the connection is successful
+        if cnx.is_connected():
+            print("Connection Successful")
 
+            cursor = cnx.cursor()
+            cursor.execute("SELECT * FROM Dimaircraft")  # Fetch all rows from the table
+            users = cursor.fetchall()
+            cursor.close()  # Close cursor
+            cnx.close()  # Close the connection
+
+            return render_template('index.html', aircrafts=users)
+        else:
+            return "Connection Failed", 500
+
+    except mysql.connector.Error as e:
+        return f"Error Connecting to MySQL Database: {e}", 500
+
+    finally:
+        if cnx and cnx.is_connected():
+            cnx.close()
+        
 if __name__ == '__main__':
     app.run(debug=True)
