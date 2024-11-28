@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
 import os
-
+ssl_certificate_url = 'https://github.com/AkifaKhan/CloudWays-Project/blob/main/certs/DigiCertGlobalRootCA.crt.pem'
+base_dir = os.path.abspath(os.path.dirname(__file__))
 ssl_certificate_path = os.path.join(base_dir, 'certs', 'DigiCertGlobalRootCA.crt.pem')
 
 app = Flask(__name__)
@@ -13,9 +14,10 @@ config = {
     'password': 'Blueberry@2001',
     'port': 3306,
     'database': 'cloudways-database',
-    'ssl_ca': ssl_certificate_path,  # Dynamically constructed path
+    'ssl_ca': ssl_certificate_path,  # Path to downloaded certificate
     'ssl_disabled': False
 }
+
 
 @app.route('/')
 def home():
