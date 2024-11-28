@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Flights - CloudWays</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="available-flights-page">
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="CloudWays Logo">
+            <span>CloudWays</span>
+        </div>
+    </header>
+
+    <div class="available-flights">
+            <!-- Back to home button -->
+            <a href="{{ url_for('home') }}" class="btn-back">Back</a>
+        <h1>Available Flights</h1>
+
+        <!-- Card-based layout for available flights -->
+        <div class="flights-container">
+            {% for flight in flights %}
+                <div class="flight-card">
+                    <h2>Flight {{ flight.flight_id }}</h2>
+                    <p><strong>Departure City:</strong> {{ flight.departure_city }}</p>
+                    <p><strong>Arrival City:</strong> {{ flight.arrival_city }}</p>
+                    <p><strong>Flight Date:</strong> {{ flight.departure_date }}</p>
+                    <p><strong>Departure Time:</strong> {{ flight.departure_time }}</p>
+                    <p><strong>Arrival Time:</strong> {{ flight.arrival_time }}</p>
+                    <p><strong>Available Seats:</strong> {{ flight.seats_available }}</p>
+                    <p><strong>Fare:</strong> ${{ flight.price }}</p>
+                    <a href="#" class="btn-book">Book Now</a>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CloudWays. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

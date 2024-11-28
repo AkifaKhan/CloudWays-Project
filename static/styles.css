@@ -1,0 +1,558 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin:0;
+    padding:0;
+}
+
+/* Container for the whole page */
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2; /* Ensure the body takes at least the full height of the viewport */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: rgb(13, 13, 65);
+    color: white;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+    position: relative;
+    top: 10px;
+}
+
+header .logo span {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: white;
+    line-height: 2;
+    line-height-step: 1;  /* Adjust this value as needed to fine-tune the vertical position */
+    margin-top: -200px;
+}
+
+header .nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+header .nav-buttons button,
+header .nav-buttons input {
+    margin-left: 10px;
+    padding: 10px 15px;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+header .nav-buttons button:hover {
+    background-color: #e2b85d;
+    color: white;
+}
+
+
+header .nav-buttons input {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+header .nav-buttons input::placeholder {
+    color: #888;
+}
+
+/* Hero Section Styles */
+.hero {
+    background-image: url('background_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 75vh;
+    color: white;
+    text-align: center;
+    padding: 140px 20px;
+    flex-grow: 1; 
+}
+
+/* Styling for the hero section */
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero button {
+    padding: 15px 30px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero button:hover {
+    background-color: white;
+    color: rgb(13, 13, 65);
+    transform: translateY(-5px);
+}
+
+
+
+/* Header Styles */
+.form-header {
+    grid-column: span 2; /* Make the header span across both columns */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading-container {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+    .btn-back {
+        display: inline-block;
+        position: absolute;
+        top: 150px; /* Adjusts distance from top */
+        left: 200px; /* Adjusts distance from the left */
+        padding: 12px 25px; /* Larger padding for a more prominent button */
+        background-color: #d19234; /* Button background color */
+        color: white; /* Text color */
+        text-decoration: none; /* Removes underline */
+        border-radius: 30px; /* Rounded corners */
+        font-size: 1.2em; /* Font size */
+        font-weight: bold; /* Bold text */
+        letter-spacing: 1px; /* Spacing between letters */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for the button */
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and position */
+    }
+
+
+
+    .btn-back:hover {
+        background-color: #d4d3cf; /* Dark background on hover */
+        transform: translateY(-5px); /* Slight lift effect */
+    }
+
+    /* Body and Background Styles */
+    body.book-flight-page  {
+        font-family: 'Poppins', sans-serif; /* Elegant and modern font */
+        background-image: url('bck2.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    /* Booking Form Styles */
+    .booking-form {
+        width: 80%;
+        max-width: 1200px;
+        margin: 10px auto;
+        padding: 40px;
+        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        column-gap: 2px; /* Space between columns */
+        row-gap: 20px; /* Space between rows */
+    }
+    .booking-form h2 {
+        font-size: 1em;
+        text-align: center;
+        margin-bottom: 2px;
+        color:white;
+        padding: 10px 0; /* Add some padding for spacing */
+        margin-top: 10px;
+        position: relative; /* Allows adjustment without affecting others */
+        top: 20px;
+
+    }
+
+    .booking-form div {
+        display: flex;
+        flex-direction: column; /* Align label and input vertically */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .booking-form {
+            grid-template-columns: 1fr; /* Switch to single column on small screens */
+        }
+    }
+
+    /* Label Styles */
+    .booking-form label {
+        display: block;
+        margin: 15px 0 8px;
+        font-size: 1.2em;
+        color: #f4f4f4;
+    }
+
+    /* Input Fields */
+    .booking-form input,
+    .booking-form select {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 20px;
+        color: #fff;
+        background-color: #474e75; /* Darker input background */
+        border: 1px solid #ababaf;
+        border-radius: 6px;
+        font-size: 1em;   
+        transition: background-color 0.2s;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus {
+        background-color: #ababaf; /* Lighter on focus */
+        outline: none;
+        border-color: #ababaf; /* Border color changes to pink on focus */
+    }
+
+
+    /* Adjusting the dropdown size */
+    .booking-form select {
+        width: 100%;  /* Makes the dropdown take the full width of the form container */
+        padding: 8px; /* Adds some padding inside the dropdown */
+        font-size: 0.9em; /* Increases the font size for better readability */
+        height: 45px; /* Increases the height of the dropdown */
+        border: 1px solid #ccc;
+        border-radius: 4px; /* Optional: Adds rounded corners */
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* Button Styles */
+    .booking-form button {
+        width: 35%;
+        padding: 15px;
+        background-color: #ce822c;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .booking-form button:hover {
+        background-color: #afa797;
+        transform: translateY(-5px); /* Slight lift effect */
+    }
+
+    .booking-form button:active {
+        transform: translateY(2px); /* "Pressed" effect on click */
+        box-shadow: 0px 2px 5px rgba(206, 11, 11, 0.1); /* Subtle shadow when clicked */
+    }
+
+    /* Footer Styles */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: rgb(9, 9, 49);
+        color: white;
+        margin-top: auto; /* This pushes the footer to the bottom */
+    }
+
+    footer button {
+        margin-top: 5px;
+        padding: 5px 20px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s;
+    }
+    
+    footer button:hover {
+        background-color: #d19234;
+        color: white;
+    }
+
+/* Available Flights Page Styles */
+.available-flights {
+    margin:0;
+    padding: 0px;
+    background-color: white;
+    min-height: 60vh;
+}
+
+.available-flights h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.available-flights table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+.available-flights th, .available-flights td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #1b2266;
+}
+
+.available-flights th {
+    background-color: #f5c366;
+    font-weight: bold;
+}
+
+.available-flights tr {
+    background-color: #f5c366;
+}
+
+.available-flights tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Styling for the Back Button */
+.available-flights .btn-back {
+    display: inline-block;
+    position: absolute;
+    top: 130px; /* Adjusts distance from top */
+    left: 50px; /* Adjusts distance from the left */
+    padding: 12px 25px; /* Larger padding for a more prominent button */
+    background-color: #d19234; /* Button background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Removes underline */
+    border-radius: 30px; /* Rounded corners */
+    font-size: 1.2em; /* Font size */
+    font-weight: bold; /* Bold text */
+    letter-spacing: 1px; /* Spacing between letters */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for the button */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and position */
+}
+
+.available-flights .btn-back:hover {
+    background-color: #444444; /* Darker color on hover */
+    transform: translateY(-5px); /* Button moves up slightly when hovered */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+.available-flights .btn-back:active {
+    transform: translateY(2px); /* Button moves down on click for a pressed effect */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow when clicked */
+}
+
+
+
+.btn-back:hover {
+    background-color: #b4b2afe8;
+    color: #f4f4f4;
+}
+
+/* Available Flights Section */
+.available-flights {
+    padding:100px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for content */
+    border-radius: 10px; /* Optional: rounded corners */
+    margin-top: 0px; /* Adds space between the header and the content */
+}
+
+/* Word Art effect for the Available Flights heading */
+.available-flights h1 {
+    font-family: 'Arial', sans-serif; /* Choose a stylish font family */
+    font-size: 4em; /* Adjust the size */
+    font-weight: bold; /* Make it bold */
+    color: #fff; /* Set default text color to white */
+    background: linear-gradient(45deg, #ff6b81, #ff9f00, #4e73df, #27ae60); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip the background to text */
+    background-clip: text; /* Clip the background to text */
+    text-align: center; /* Center the heading */
+    letter-spacing: 3px; /* Add space between letters */
+    text-transform: uppercase; /* Make the text uppercase */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Add a soft shadow to the text */
+    padding: 20px 0; /* Add some padding for spacing */
+    position: relative;
+}
+
+/* Add animation for a dynamic effect */
+@keyframes wordArtAnimation {
+    0% {
+        transform: scale(1);
+        color: white;
+    }
+    50% {
+        transform: scale(1.1);
+        color: #191366;
+    }
+    100% {
+        transform: scale(1);
+        color: white;
+    }
+}
+
+.available-flights h1 {
+    animation: wordArtAnimation 2s ease-in-out infinite;
+}
+
+
+/* Styling specific to the Available Flights page */
+body.available-flights-page {
+    background-image: url('bck.png');            
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh; /* Ensure it covers the whole page */
+}
+
+/* Card-based Layout for Flights */
+.flights-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Flight Card Styles */
+.flight-card {
+    background-color: transparent; /* White background for the card */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    text-align: center;
+}
+
+.flight-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card on hover */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+/* Flight Card Heading */
+.flight-card h2 {
+    font-family: 'Poppins', sans-serif; /* Stylish font family */
+    font-size: 2.5em; /* Font size for the heading */
+    font-weight: bold; /* Bold font */
+    color: #4e73df; /* Color for the heading */
+    background: linear-gradient(45deg, #ff6b81, #ff9f00, #4e73df, #27ae60); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to text */
+    background-clip: text; /* Clip the background to text */
+    text-align: center;
+    letter-spacing: 2px; /* Spacing between letters */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Add shadow to make it pop */
+    margin-bottom: 15px;
+}
+
+/* Flight Details */
+.flight-card p {
+    font-family: 'Lora', serif; /* Elegant, readable font for body text */
+    font-size: 1.2em; /* Slightly larger text */
+    color: #333; /* Dark color for better readability */
+    line-height: 1.6; /* Line height for spacing between text */
+    margin-bottom: 10px;
+}
+
+.flight-card strong {
+    font-weight: bold;
+}
+
+/* Styling for 'Book Now' Button */
+.flight-card .btn-book {
+    display: inline-block;
+    background-color: #4e73df; /* Button background */
+    color: white; /* Text color */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 30px; /* Rounded button */
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.flight-card .btn-book:hover {
+    background-color: #ce822c; /* Hover color */
+    transform: translateY(-5px); /* Hover effect to lift the button */
+}
+
+/* Adding animation to the card text for a dynamic effect */
+@keyframes cardTextAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.flight-card h2,
+.flight-card p {
+    animation: cardTextAnimation 1s ease-in-out;
+}
+
+.btn-book {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.btn-book:hover {
+    background-color: #0056b3;
+}
+
