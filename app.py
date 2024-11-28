@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
 import os
 
-app = Flask(__name__)
-
 ssl_certificate_path = os.path.join(base_dir, 'certs', 'DigiCertGlobalRootCA.crt.pem')
+
+app = Flask(__name__)
 
 # MySQL connection config
 config = {
