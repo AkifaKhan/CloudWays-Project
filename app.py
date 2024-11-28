@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
+import os
 
 app = Flask(__name__)
+
+ssl_certificate_path = os.path.join(base_dir, 'certs', 'DigiCertGlobalRootCA.crt.pem')
 
 # MySQL connection config
 config = {
@@ -10,7 +13,7 @@ config = {
     'password': 'Blueberry@2001',
     'port': 3306,
     'database': 'cloudways-database',
-    'ssl_ca': 'https://github.com/AkifaKhan/CloudWays-Project/blob/main/DigiCertGlobalRootCA.crt.pem',  # Replace with your SSL certificate path
+    'ssl_ca': ssl_certificate_path,  # Dynamically constructed path
     'ssl_disabled': False
 }
 
