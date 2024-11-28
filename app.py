@@ -10,7 +10,7 @@ config = {
     'password': 'Blueberry@2001',
     'port': 3306,
     'database': 'cloudways-database',
-    'ssl_ca': r'Downloads\DigiCertGlobalRootG2.crt',  # Replace with your SSL certificate path
+    'ssl_ca': 'https://github.com/AkifaKhan/CloudWays-Project/blob/main/DigiCertGlobalRootCA.crt.pem',  # Replace with your SSL certificate path
     'ssl_disabled': False
 }
 
