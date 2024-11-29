@@ -1,0 +1,40 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CloudWays - Travel</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <!-- Add a container div around the entire content -->
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="CloudWays Logo">
+                    <span>CloudWays</span>
+                </div>
+                <div class="nav-buttons">
+                    <button onclick="window.location.href='#'">Where We Fly</button>
+                    <button onclick="window.location.href='#'">Deals</button>
+                    <input type="search" placeholder="Search...">
+                </div>
+            </header>
+
+            <!-- Add a main-content div around the hero and other content -->
+            <div class="main-content">
+                <div class="hero">
+                    <h1>Welcome to CloudWays!</h1>
+                    <p>Your Trusted Travel Partner</p>
+                    <button onclick="window.location.href='/book_flight'">Book Your Flight</button>
+                    <button onclick="window.location.href='/available_flights'">See Available Flights</button>
+                </div>
+            </div> <!-- Main content div ends here -->
+
+            <footer id="home-footer">
+                <p>&copy; 2024 CloudWays. All rights reserved.</p>
+                <button onclick="window.location.href='#'">About Us</button>
+            </footer>
+        </div> <!-- Container div ends here -->
+    </body>
+    </html>
