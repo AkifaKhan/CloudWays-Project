@@ -32,7 +32,7 @@
                     <p><strong>Arrival Time:</strong> {{ flight.arrival_time }}</p>
                     <p><strong>Available Seats:</strong> {{ flight.seats_available }}</p>
                     <p><strong>Fare:</strong> ${{ flight.price }}</p>
-                    <a href="#" class="btn-book">Book Now</a>
+                    <a href="{{ url_for('book_flight', departure_city=flight.departure_city, arrival_city=flight.arrival_city, departure_date=flight.departure_date) }}" class="btn-book">Book Now</a>
                 </div>
             {% endfor %}
         </div>
