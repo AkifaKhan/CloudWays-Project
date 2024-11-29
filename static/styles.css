@@ -10,6 +10,8 @@ body {
     background-color: #f4f4f4;
     min-height: 100vh;
     display: flex;
+    background-position: center 20%; 
+    padding: 140px 20px;
     flex-direction: column;
     margin:0;
     padding:0;
@@ -92,7 +94,7 @@ header .nav-buttons input::placeholder {
     min-height: 75vh;
     color: white;
     text-align: center;
-    padding: 140px 20px;
+    padding: 100px 0px;
     flex-grow: 1; 
 }
 
@@ -129,6 +131,9 @@ header .nav-buttons input::placeholder {
     color: rgb(13, 13, 65);
     transform: translateY(-5px);
 }
+
+
+
 
 
 
@@ -189,7 +194,7 @@ header .nav-buttons input::placeholder {
 
     /* Booking Form Styles */
     .booking-form {
-        width: 80%;
+        width: 100%;
         max-width: 1200px;
         margin: 10px auto;
         padding: 40px;
@@ -200,7 +205,9 @@ header .nav-buttons input::placeholder {
         grid-template-columns: 1fr 1fr; /* Two equal columns */
         column-gap: 2px; /* Space between columns */
         row-gap: 20px; /* Space between rows */
+        flex:1;
     }
+
     .booking-form h2 {
         font-size: 1em;
         text-align: center;
@@ -210,6 +217,7 @@ header .nav-buttons input::placeholder {
         margin-top: 10px;
         position: relative; /* Allows adjustment without affecting others */
         top: 20px;
+        left: 270px
 
     }
 
@@ -249,9 +257,10 @@ header .nav-buttons input::placeholder {
 
     .booking-form input:focus,
     .booking-form select:focus {
-        background-color: #ababaf; /* Lighter on focus */
+        background-color: #ccc; /* Lighter on focus */
         outline: none;
         border-color: #ababaf; /* Border color changes to pink on focus */
+        color: black
     }
 
 
@@ -294,15 +303,20 @@ header .nav-buttons input::placeholder {
         box-shadow: 0px 2px 5px rgba(206, 11, 11, 0.1); /* Subtle shadow when clicked */
     }
 
-    /* Footer Styles */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: rgb(9, 9, 49);
-        color: white;
-        margin-top: auto; /* This pushes the footer to the bottom */
-    }
-
+footer {
+    width: 100%; /* Full width */
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(9, 9, 49);
+    color: white;
+    margin-top: auto; /* Works with flexbox */
+    clear: both; /* Clears any floats */
+    width: 100%;
+    position:fixed;
+    bottom:0;
+    left:0;
+}
+    
     footer button {
         margin-top: 5px;
         padding: 5px 20px;
@@ -319,7 +333,7 @@ header .nav-buttons input::placeholder {
         background-color: #d19234;
         color: white;
     }
-
+    
 /* Available Flights Page Styles */
 .available-flights {
     margin:0;
@@ -556,3 +570,121 @@ body.available-flights-page {
     background-color: #0056b3;
 }
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    padding: 20px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    z-index: 2000;
+}
+.popup.show {
+    display: block;
+}
+
+.popup-card {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #f4f7fa, #e9ecf3); /* Subtle gradient for a modern look */
+    border-radius: 16px; /* Softer, more modern rounded corners */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* More prominent shadow for depth */
+    padding: 40px;
+    z-index: 1000;
+    width: 400px;
+    max-width: 90%;
+    box-sizing: border-box;
+    text-align: center; /* Centered text for a balanced layout */
+    color: #34495e; /* Slightly darker text for better contrast */
+    border: 1px solid #dcdde1; /* Subtle border for a polished look */
+    animation: fadeIn 0.3s ease-in-out; /* Smooth animation on appearance */
+}
+
+.popup-card.show {
+    display: block;
+}
+
+.popup-card h3 {
+    margin-top: 0;
+    color: #2c3e50; /* Keeping a dark and professional heading */
+    font-size: 26px; /* Slightly larger heading for emphasis */
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px; /* Slight spacing for a refined look */
+}
+
+.popup-card .flight-details p {
+    margin: 12px 0;
+    color: #2c3e50; /* Darker color for readability */
+    font-size: 16px; /* Good balance between readability and compactness */
+    line-height: 1.5; /* Added line height for better spacing */
+}
+
+/* Proceed to Pay Button Styling */
+#proceed-to-pay {
+    display: inline-block;
+    background-color: #3498db; /* Bright and inviting blue */
+    color: white;
+    padding: 12px 24px; /* Increased padding for a more prominent button */
+    text-decoration: none;
+    border-radius: 20px; /* Softer rounded corners */
+    margin-top: 20px;
+    font-size: 16px; /* Slightly larger font for visibility */
+    text-align: center;
+    cursor: pointer;
+    width:300px;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding subtle shadow for depth */
+}
+
+#proceed-to-pay:hover {
+    background-color: #2980b9; /* Darker shade of blue for hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Fade-in animation for the popup */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+#home-footer {
+    width:100%;
+    padding: 11px; /* Increased padding for more height */
+    background-color: rgb(9, 9, 49); /* Optional: different background color */
+    position:relative
+
+    
+}
+
+#home-footer button {
+    margin-top: 20px;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s;
+}
+
+#home-footer button:hover {
+    background-color: #d19234;
+    color: white;
+}
