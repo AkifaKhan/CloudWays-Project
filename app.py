@@ -8,6 +8,7 @@ base_dir = os.path.abspath(os.path.dirname(__file__))
 ssl_certificate_path = os.path.join(base_dir, 'certs', 'DigiCertGlobalRootCA.crt.pem')
 
 app = Flask(__name__)
+CORS(app)
 
 # MySQL connection config
 config = {
